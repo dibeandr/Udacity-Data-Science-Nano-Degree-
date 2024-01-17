@@ -2,7 +2,9 @@
 
 
 ## Project Motivation
- As the digital wave transforms consumer habits, online shopping data offers a treasure trove of insights. Employing the Cross-Industry Standard Process for Data Mining (CRISP-DM) framework, this blog navigates through the realms of regions, products, and time to unveil the captivating narrative hidden within e-commerce data.
+ As the digital wave transforms consumer habits, online shopping data offers a treasure trove of insights. 
+
+ In the realm of online shopping, retail clients often contemplate the swiftness of delivery compared to the immediacy of in-store purchases. The available data delves into the geographical locations of each online transaction, elucidating sales trends on a monthly basis. Key questions addressed include identifying the country with the highest online purchases, its percentage relative to others, determining the month with the most transactions by revenue (or clicks), and discerning the most frequently sold items online. This analysis aims to provide insights into consumer behavior and preferences in the online retail landscape.
 
 [here.](https://www.kaggle.com/datasets/zeesolver/consumer-behavior-and-shopping-habits-dataset/code)
 
