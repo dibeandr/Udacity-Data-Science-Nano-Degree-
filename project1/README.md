@@ -6,8 +6,10 @@
 
  In the realm of online shopping, retail clients often contemplate the swiftness of delivery compared to the immediacy of in-store purchases. The available data delves into the geographical locations of each online transaction, elucidating sales trends on a monthly basis. Key questions addressed include identifying the country with the highest online purchases, its percentage relative to others, determining the month with the most transactions by revenue (or clicks), and discerning the most frequently sold items online. This analysis aims to provide insights into consumer behavior and preferences in the online retail landscape.
 
-[here.](https://www.kaggle.com/datasets/zeesolver/consumer-behavior-and-shopping-habits-dataset/code)
+File coound be found on this link [here.](https://www.kaggle.com/datasets/thedevastator/online-retail-transaction-data/code)
 
+## Blog Post
+My main findings gethered on my notebook can be found on the blog i wrote Medium and can be accessed  [here](https://medium.com/@mohaumasukela/how-to-influence-consumer-buying-behavior-as-a-business-bd99ba4b552f).
 
 ## Installations
 
