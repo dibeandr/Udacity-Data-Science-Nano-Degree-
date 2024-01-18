@@ -1,4 +1,5 @@
-# Online Shopping
+# Online Retail Shopping
+#Beyond the Cart: Analyzing 12 Months of UK Online Retail Splurge
 
 
 ## Project Motivation
@@ -15,10 +16,10 @@ What is the fast-selling item from the stock list?
 
 Which month did the retail makes highest revenue?
 
-File could be found on this link [here.](https://www.kaggle.com/datasets/thedevastator/online-retail-transaction-data/code)
+DataseFile could be found on this link [here.](https://www.kaggle.com/datasets/thedevastator/online-retail-transaction-data/code)
 
 ## Blog Post
-My main findings gethered on my notebook can be found on the blog i wrote Medium and can be accessed  [here](https://medium.com/@malomesuret/beyond-the-cart-analyzing-12-months-of-uk-online-retail-splurge-7562f6bc965a)
+I used medium and more info coudl be found with Code on notebook and others on  [here](https://medium.com/@malomesuret/beyond-the-cart-analyzing-12-months-of-uk-online-retail-splurge-7562f6bc965a)
 
 ## Installations
 
