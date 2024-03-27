@@ -1,7 +1,8 @@
-# Disaster Response Pipeline Project
+# Project about building Disaster Response Pipeline
 
 ### Instructions:
 Data Scientists for Disaster Response
+
 Disaster Response Pipeline
 Overview
 In this project, I engaged with a dataset generously supplied by Appen, leveraging it to construct a multifaceted system comprising Extract, Transform, Load (ETL), Natural Language Processing (NLP), and machine learning pipelines. The primary goal was to effectively categorize emergency service messages received from users, contextualizing them based on the specific needs expressed in response to a natural disaster event. The textual inputs, often referred to as the "voice of the victim," served as the foundation for this classification process.
@@ -19,15 +20,17 @@ apply Tokenizing,classification to prepare the model
 revoke the gridsearch to opmitise the parameters and recommnend best parameters
 Archive the model to a pickle file , to import onto the flask app
 3. Flask Webb App run.py allows the user:
+
 To take an input from user, process by classifying add issue the related message and help needed, linking it to related categories from the 36.
+
 Visualise the saved messages rendered from the database called PipelineDataClean.db
 Instructions on Running the App
 ETL Pipeline
 when you open the data folder in your IDE, you need to add the below commands in terminal of process_data.py
-process_data.py disaster_messages.csv DisasterResponse.db
+process_data.py disaster_messages.csv PipelieDataClean.db
 ML Pipeline
 when you open the models folder in your IDE, you need to add the below commands in terminal of train_classifier.py
-train_classifier.py DisasterResponse.db classifier.pkl
+train_classifier.py PipelieDataClean.db classifier.pkl
 
 Results
 To run the app you need to open Workspace folder in your IDE application(vs code) and run the run.py file.
