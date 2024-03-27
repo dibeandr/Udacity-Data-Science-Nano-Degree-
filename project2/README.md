@@ -28,22 +28,6 @@ process_data.py disaster_messages.csv DisasterResponse.db
 ML Pipeline
 when you open the models folder in your IDE, you need to add the below commands in terminal of train_classifier.py
 train_classifier.py DisasterResponse.db classifier.pkl
-File Structure
-
-Workspace
-├── app
-│   ├── run.py
-│   └── templates
-│       ├── go.html
-│       └── master.html
-├── data
-│   ├── DisasterResponse.db
-│   ├── disaster_categories.csv
-│   ├── disaster_messages.csv
-│   └── process_data.py
-└── models
-    ├── classifier.pkl
-    └── train_classifier.py
 
 Results
 To run the app you need to open Workspace folder in your IDE application(vs code) and run the run.py file.
@@ -51,3 +35,7 @@ To run the app you need to open Workspace folder in your IDE application(vs code
 Below is the output of the application using plotly to render the visuals sorted from highest to lowest count by source and category.
 
 The classification example when you add a message on app
+![alt text](image.png)
+![alt text](image-1.png)
+![alt text](image-2.png)
+![alt text](image-3.png)
