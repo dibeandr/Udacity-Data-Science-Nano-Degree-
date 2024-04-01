@@ -19,22 +19,19 @@ from sklearn.model_selection import GridSearchCV
 import pickle
 
 def load_data(database_filepath):
-        """    
-          the functions load file from the database
-            the parameter database_filepath gives location and name of the loaded database 
-            returning X and Y variables
-        """
+    """    
+        the functions load file from the database
+        the parameter database_filepath gives location and name of the loaded database 
+        returning X and Y variables
+    """
     engine = create_engine('sqlite:///' + database_filepath)
     conn=engine.connect()
-    #query = "SELECT * FROM merged_df"
-   # df = pd.read_sql(query, engine)
     df = pd.read_sql_table('merged_df', conn)
     X = df['message']
     Y = df.drop(columns=['id', 'message', 'original', 'genre'])
-    return X,Y
+    return X, Y
 
 def tokenize(text):
-    
     """
     tokenizes the input text,
     removes punctuation, 
@@ -57,8 +54,7 @@ def tokenize(text):
     tokens = [w for w in tokens if w not in stopwords.words("english")]
         
     # apply Lemmatization
-    tokens = [WordNetLemmatizer().lemmatize(w) for w in tokens]    
-    
+    tokens = [WordNetLemmatizer().lemmatize(w) for w in tokens]
     return tokens
 
 def build_model():
