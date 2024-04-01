@@ -7,6 +7,11 @@ import sqlite3
 import sqlalchemy
 
 def load_data(messages_filepath, categories_filepath):
+    """ 
+                Loads the two files , merges the two files  and produce one merged file
+                param1 messages_filepath - file taht contains messages
+                param2 categories_filepath - file contains categories
+    """
     messages = pd.read_csv(messages_filepath)
     categories = pd.read_csv(categories_filepath)
     merged_df = pd.merge(messages, categories, on='id', how='inner')
@@ -30,12 +35,12 @@ def clean_data(merged_df):
     return merged_df
     
     
-def save_data(merged_df, database_filename):
+def save_data(merged_df, database_filepath):
     #Import the create_engine function from the SQLAlchemy library
     from sqlalchemy import create_engine
 
     # Create an SQLAlchemy engine to connect to the SQLite database
-    engine = create_engine('sqlite:///PipelineDataClean.db')
+    engine = create_engine(f'sqlite:///{database_filepath}')
 
     # Write the DataFrame to a SQL database table named 'merged_df'
     merged_df.to_sql('merged_df', engine, index=False, if_exists="replace")

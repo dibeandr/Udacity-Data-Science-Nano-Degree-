@@ -3,6 +3,9 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+from nltk.corpus import stopwords
+from nltk.tokenize import word_tokenize
+from nltk.stem import WordNetLemmatizer
 from sqlalchemy import create_engine
 from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
 from sklearn.multioutput import MultiOutputClassifier
@@ -16,7 +19,7 @@ from sklearn.model_selection import GridSearchCV
 import pickle
 
 def load_data(database_filepath):
-    engine = create_engine('sqlite:///PipelineDataClean.db')
+    engine = create_engine('sqlite:///' + database_filepath)
     conn=engine.connect()
     #query = "SELECT * FROM merged_df"
    # df = pd.read_sql(query, engine)
@@ -28,6 +31,11 @@ def load_data(database_filepath):
 
 
 def tokenize(text):
+    """ tokenizes the input text,
+      removes punctuation, 
+      converts words to lowercase,
+        removes stop words, and then performs lemmatization on the remaining tokens
+    """
     punctuation = '''!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~'''
     tokens = []
     words = text.split()
@@ -36,7 +44,13 @@ def tokenize(text):
         word = ''.join([char for char in word if char not in punctuation])
         # Convert the word to lowercase and add it to the list of tokens
         tokens.append(word.lower())
+
+     #remove stop words
+     
+    word = [w for w in word if w not in stopwords.words("english")]
         
+    # apply Lemmatization
+    tokens = [WordNetLemmatizer().lemmatize(w) for w in word]    
     
     return tokens
 
