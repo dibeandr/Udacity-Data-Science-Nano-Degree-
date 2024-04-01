@@ -89,7 +89,15 @@ def evaluate_model(model, X_test, Y_test, category_names):
         print(classification_report(Y_test[col], Y_pred[:, i]))
 
 def save_model(model, model_filepath):
-    with open('Tmodel.pkl', 'wb') as file:
+    """
+    Save the trained model to a pickle file.
+
+    Parameters:
+    model (): The trained model to be saved.
+    model_filepath (str): The filepath where the model will be saved.
+
+    """
+    with open(model_filepath, 'wb') as file:
         pickle.dump(model, file)
     
         
