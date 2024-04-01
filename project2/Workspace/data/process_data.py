@@ -31,11 +31,33 @@ def load_data(messages_filepath, categories_filepath):
     return merged_df
 
 def clean_data(merged_df):
+    """
+    
+    fucntions is Cleaning the input DataFrame by removing duplicates.
+
+    Parameters:
+        merged_df : pandas.DataFrame
+            The DataFrame to be cleaned.
+
+    Returns:
+        cleaned_df : pandas.DataFrame
+            The DataFrame with duplicates removed.
+    """
     merged_df.drop_duplicates(inplace=True)
     return merged_df
     
     
 def save_data(merged_df, database_filepath):
+    
+    """
+    the fucntion saves the input DataFrame to a SQLite table.
+
+    Parameters:
+        merged_df : pandas.DataFrame
+            The DataFrame to be saved to the database.
+        database_filepath : str
+            The filepath of the SQLite database where the df will be saved.
+    """
     #Import the create_engine function from the SQLAlchemy library
     from sqlalchemy import create_engine
 
