@@ -1,13 +1,12 @@
-# Project about building Disaster Response Pipeline
+# Disaster Response Pipeline Project
+ 
 
-### Instructions:
-Data Scientists for Disaster Response
+For further insights into this project, including all associated files and code components, kindly access the project repository by clicking the provided link.
+### Introduction Summary
 
-Disaster Response Pipeline
-Overview
-In this project, I engaged with a dataset generously supplied by UDacity, leveraging it to construct a multifaceted system comprising Extract, Transform, Load (ETL), Natural Language Processing (NLP), and machine learning pipelines. The primary goal was to effectively categorize emergency service messages received from users, contextualizing them based on the specific needs expressed in response to a natural disaster event. The textual inputs, often referred to as the "voice of the victim," served as the foundation for this classification process.
+In this project, I engaged with a dataset generously supplied by UDacity, leveraging it to construct a multifaceted system comprising Extract, Transform, Load (ETL), Natural Language Processing (NLP), and machine learning pipelines. The primary goal was to effectively categorise emergency service messages received from users, contextualizing them based on the specific needs expressed in response to a natural disaster event. The textual inputs, often referred to as the "voice of the victim," served as the foundation for this classification process.
 
-To operationalize this solution, I integrated the Flask framework, developing a user-friendly interface that can be seamlessly deployed via web platforms. This approach ensures accessibility and ease of use for stakeholders interacting with the system, facilitating efficient and informed decision-making in emergency response scenarios.
+I further integrated the Flask framework, developing a user-friendly interface that can be seamlessly deployed via web platforms. This approach ensures accessibility and ease of use for stakeholders interacting with the system, facilitating efficient and informed decision-making in emergency response scenarios.
 
 Project Structure
 1. ETL Pipeline process_data.py prepares the script that performs the data cleaning pipeline in the sequence below
@@ -23,9 +22,40 @@ Archive the model to a pickle file , to import onto the flask app
 
 3. Flask Webb App run.py allows the user:
 
-To take an input from user, process by classifying add issue the related message and help needed, linking it to related categories from the 36.
+To take an input from user, process by classifying add issue the related message and help needed, linking it to related categories from the total of 36.
 
 Visualise the saved messages rendered from the database called PipelineDataClean.db
+
+## File Structure and Folders
+
+![alt text](image-4.png)
+
+images Folder
+- Screenshots of images as examples of Output
+
+Notebook
+- ETL Pipeline notebook for ETL, output will be process file
+- ML Pipeline jupyter notebook for Machine Learning, preparing Tmodel pkl file
+- disaster_messages.csv : csv file that contains difderent messages
+- disaster_categories.csv : csv file that cotains different categories
+- Cleaned database named PipelineDataclean, an SQL database created 
+
+app
+-  inside templates we running go.html and master.html
+- run.py : A Flask app that will highlight message category as given by user
+- go.html and master.html : for visualisations in app
+
+data
+- process.py : a script for ETL
+
+Models
+- train_classier.py : a populated script for ML
+- Default file we found inhere called ipynb_checkpoints
+
+
+
+README.md
+- this file
 
 ### Instructions on Running the App 
 
