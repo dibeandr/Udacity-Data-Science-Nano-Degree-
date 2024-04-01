@@ -32,15 +32,16 @@ def load_data(database_filepath):
     X = df['message']
     Y = df.drop(columns=['id', 'message', 'original', 'genre'])
     return X,Y
-   
-
 
 def tokenize(text):
-    """ tokenizes the input text,
-      removes punctuation, 
-      converts words to lowercase,
-        removes stop words, and then performs lemmatization on the remaining tokens
-        returning lemmatized tokens
+    
+    """
+    tokenizes the input text,
+    removes punctuation, 
+    converts words to lowercase,
+    removes stop words,
+    and then performs lemmatization on the remaining tokens
+    returning lemmatized tokens
     """
     punctuation = '''!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~'''
     tokens = []
@@ -51,23 +52,21 @@ def tokenize(text):
         # Convert the word to lowercase and add it to the list of tokens
         tokens.append(word.lower())
 
-     #remove stop words
-     
-    word = [w for w in word if w not in stopwords.words("english")]
+    # remove stop words
+    
+    tokens = [w for w in tokens if w not in stopwords.words("english")]
         
     # apply Lemmatization
-    tokens = [WordNetLemmatizer().lemmatize(w) for w in word]    
+    tokens = [WordNetLemmatizer().lemmatize(w) for w in tokens]    
     
     return tokens
 
-
 def build_model():
-"""    
- the function builds a pipeline, 
- retuning a Cv which equates to a Gridsearch
-"""
-   
-
+    """    
+    the function builds a pipeline, 
+    retuning a Cv which equates to a Gridsearch
+    """
+    # creating a Machine Learning pipeline        
     pipeline = Pipeline([
     ('vect', CountVectorizer()),  # Text vectorization
     ('tfidf', TfidfTransformer()),  # TF-IDF transformation
@@ -89,15 +88,15 @@ def build_model():
 
 
 def evaluate_model(model, X_test, Y_test, category_names):
-        """
-        The fucntion evaluates the performance of the trained model
+    """
+        The fucntion evaluates the performance of the trained model.
         Parameters: 
-            model () = The trained model under evaluation
-            X_test() = Features for testing
-            Y_test() = test data
-            category_names = List of category names
+            model : The trained model under evaluation
+            X_test : Features for testing
+            Y_test :  test data
+            category_names : List of category names
             
-        """
+    """
     Y_pred = model.predict(X_test)
 
 # Report f1 score, precision, and recall for each output category
@@ -105,16 +104,15 @@ def evaluate_model(model, X_test, Y_test, category_names):
         print(classification_report(Y_test[col], Y_pred[:, i]))
 
 def save_model(model, model_filepath):
-    """
-    Save the trained model to a pickle file.
+        """
+        Save the trained model to a pickle file.
+        Parameters:
+        model (): The trained model to be saved.
+        model_filepath (str): The filepath where the model will be saved.
 
-    Parameters:
-    model (): The trained model to be saved.
-    model_filepath (str): The filepath where the model will be saved.
-
-    """
-    with open(model_filepath, 'wb') as file:
-        pickle.dump(model, file)
+        """
+        with open(model_filepath, 'wb') as file:
+            pickle.dump(model, file)
     
         
 def main():
@@ -129,7 +127,7 @@ def main():
 
         """
 
-    if len(sys.argv) == 3:
+if len(sys.argv) == 3:
         database_filepath, model_filepath = sys.argv[1:]
         print('Loading data...\n    DATABASE: {}'.format(database_filepath))
         X, Y = load_data(database_filepath)
@@ -150,7 +148,7 @@ def main():
 
         print('Trained model saved!')
 
-    else:
+else:
         print('Please provide the filepath of the disaster messages database '\
               'as the first argument and the filepath of the pickle file to '\
               'save the model to as the second argument. \n\nExample: python '\
