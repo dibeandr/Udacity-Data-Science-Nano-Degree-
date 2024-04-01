@@ -19,6 +19,11 @@ from sklearn.model_selection import GridSearchCV
 import pickle
 
 def load_data(database_filepath):
+        """    
+          the functions load file from the database
+            the parameter database_filepath gives location and name of the loaded database 
+            returning X and Y variables
+        """
     engine = create_engine('sqlite:///' + database_filepath)
     conn=engine.connect()
     #query = "SELECT * FROM merged_df"
@@ -35,6 +40,7 @@ def tokenize(text):
       removes punctuation, 
       converts words to lowercase,
         removes stop words, and then performs lemmatization on the remaining tokens
+        returning lemmatized tokens
     """
     punctuation = '''!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~'''
     tokens = []
@@ -56,9 +62,12 @@ def tokenize(text):
 
 
 def build_model():
+"""    
+ the function builds a pipeline, 
+ retuning a Cv which equates to a Gridsearch
+"""
    
-    #vectorizer = CountVectorizer()
-    #tfidf_transformer = TfidfTransformer()
+
     pipeline = Pipeline([
     ('vect', CountVectorizer()),  # Text vectorization
     ('tfidf', TfidfTransformer()),  # TF-IDF transformation
@@ -79,9 +88,16 @@ def build_model():
     return cv
 
 
-
-
 def evaluate_model(model, X_test, Y_test, category_names):
+        """
+        The fucntion evaluates the performance of the trained model
+        Parameters: 
+            model () = The trained model under evaluation
+            X_test() = Features for testing
+            Y_test() = test data
+            category_names = List of category names
+            
+        """
     Y_pred = model.predict(X_test)
 
 # Report f1 score, precision, and recall for each output category
@@ -102,6 +118,17 @@ def save_model(model, model_filepath):
     
         
 def main():
+        """
+
+            Load data from a database file, train a classifier, evaluate its performance,
+             and save the trained model to a file.
+
+            This function expects two command-line arguments:
+            - database_filepath: The path to the SQLite database file containing the data.
+            - model_filepath: The path to save the trained model as a pickle file.
+
+        """
+
     if len(sys.argv) == 3:
         database_filepath, model_filepath = sys.argv[1:]
         print('Loading data...\n    DATABASE: {}'.format(database_filepath))
